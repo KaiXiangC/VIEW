@@ -1,10 +1,13 @@
 package com.example.androidyolo;
 
+import android.Manifest;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Environment;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,6 +46,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static java.lang.Math.round;
 import static org.opencv.core.Core.FILLED;
 import static org.opencv.core.Core.FONT_HERSHEY_SIMPLEX;
@@ -97,7 +102,9 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 //        WindowManager.LayoutParams localLayoutParams = localWindow.getAttributes();
 //        localLayoutParams.screenBrightness = 1.0f / 255.0f;
 //        localWindow.setAttributes(localLayoutParams);
-
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA,WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE},1);
+        }
         baseLoaderCallback = new BaseLoaderCallback(this) {
             @Override
             public void onManagerConnected(int status) {
