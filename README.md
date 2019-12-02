@@ -10,7 +10,7 @@
 <li>編譯並執行程式</li>
 <hr>
 <h3>執行畫面：</h3>
-<img src="https://drive.google.com/file/d/1-S4itq6D1G2Z5G0QK9EUjMEXnQMMVDEE/view?usp=sharing">
+<img src="https://github.com/KaiXiangC/VIEW/blob/master/yolo.jpg">
 <hr>
 <h3>Android apk 連結:</h3>
 <a href="https://reurl.cc/4g8NAD">apk下載</a>
